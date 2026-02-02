@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>FISH | Home</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/png" href="/assets/brand/fish-main.png">
 </head>
 
 <body>
@@ -26,21 +27,29 @@
         </button>
 
         <nav id="primary-nav" class="site-nav" aria-label="Primary navigation">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="/">Home</a>
 
             <div class="nav-dropdown">
-                <a class="nav-link" href="pages/projects.html">Projects</a>
+                <a class="nav-link" href="/projects/">Projects</a>
                 <div class="dropdown-panel" role="menu" aria-label="Projects submenu">
-                    <a class="dropdown-link" href="pages/timeline.html">Timeline</a>
+                    <a class="dropdown-link" href="/projects/timeline/">Timeline</a>
                 </div>
             </div>
 
-            <a class="nav-link" href="pages/collaborations.html">Collaborations</a>
-            <a class="nav-link" href="pages/events.html">Events</a>
-            <a class="nav-link" href="pages/competitions.html">Competitions</a>
-            <a class="nav-link" href="pages/blog.html">Blog</a>
-            <a class="nav-link" href="pages/about.html">About Us</a>
+            <a class="nav-link" href="/collaborations/">Collaborations</a>
+            <a class="nav-link" href="/events/">Events</a>
+            <a class="nav-link" href="/competitions/">Competitions</a>
+            <a class="nav-link" href="/blog/">Blog</a>
+
+            <div class="nav-dropdown nav-dropdown--right">
+                <a class="nav-link" href="/about/">About Us</a>
+                <div class="dropdown-panel" role="menu" aria-label="About Us submenu">
+                    <a class="dropdown-link" href="/about/officers/">Officers</a>
+                    <!-- <a class="dropdown-link" href="/about/who-we-are/">Who We Are</a> -->
+                </div>
+            </div>
         </nav>
+
     </div>
 </header>
 
@@ -322,62 +331,34 @@
         </div>
     </section>
 
-    <!-- CONTACT (full-width dark background with two cards) -->
+    <!-- CONTACT (simple footer bar; no form) -->
     <section class="contact-section" id="contact">
-        <div class="contact-grid">
-            <div class="contact-card">
-                <h2 class="contact-title">Contact Us</h2>
-
-                <form class="contact-form" action="#" method="post">
-                    <div class="form-row">
-                        <div class="field">
-                            <label for="firstName">First name *</label>
-                            <input id="firstName" name="firstName" required />
-                        </div>
-
-                        <div class="field">
-                            <label for="lastName">Last name *</label>
-                            <input id="lastName" name="lastName" required />
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label for="email">Email *</label>
-                        <input id="email" name="email" type="email" required />
-                    </div>
-
-                    <div class="field">
-                        <label for="message">Write a message</label>
-                        <textarea id="message" name="message" rows="6"></textarea>
-                    </div>
-
-                    <button class="btn submit-btn" type="submit">Submit</button>
-                </form>
+        <div class="contact-strip">
+            <div class="contact-strip-left">
+                <p class="contact-line">
+                    <a class="contact-link" href="mailto:frugalinnovations@virginia.edu">frugalinnovations@virginia.edu</a>
+                </p>
+                <p class="contact-line">Charlottesville, VA, 22904</p>
             </div>
 
-            <div class="contact-card contact-card--wide">
-                <div class="contact-info">
-                    <p class="contact-line">frugalinnovations@virginia.edu</p>
-                    <p class="contact-line">Charlottesville, VA, 22904</p>
+            <div class="contact-strip-right" aria-label="Social links">
+                <a class="social-icon"
+                   href="https://groupme.com/join_group/109354949/YaK5K88R"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="Join our :contentReference[oaicite:0]{index=0}">
+                    <img src="assets/icons/groupme-icon-1.png" alt="" />
+                </a>
 
-                    <div class="divider"></div>
-
-                    <div class="social-row" aria-label="Social links">
-                        <a class="social-icon" href="#" aria-label="GroupMe">
-                            <!-- <img src="assets/brand/groupme.png" alt="" /> -->
-                        </a>
-                        <a class="social-icon" href="#" aria-label="Instagram">
-                            <!-- <img src="assets/brand/instagram.png" alt="" /> -->
-                        </a>
-                    </div>
-
-                    <div class="divider"></div>
-
-                    <p class="fineprint">© FISH at UVA.</p>
-                </div>
+                <a class="social-icon"
+                   href="https://www.instagram.com/fish_atuva"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="Visit our :contentReference[oaicite:1]{index=1}">
+                    <img src="assets/icons/instagram-icon.png" alt="" />
+                </a>
             </div>
         </div>
     </section>
+
 
 <footer class="site-footer">
     <div class="container footer-inner">

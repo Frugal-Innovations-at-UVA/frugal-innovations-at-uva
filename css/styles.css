@@ -109,13 +109,25 @@ img{ display: block; max-width: 100%; height: auto; }
 .dropdown-panel{
     display: none;
     position: absolute;
-    top: 44px;
+    top: 100%;
     left: 0;
+    margin-top: 10px;          /* visual spacing */
     min-width: 180px;
     background: var(--bg);
     border: 1px solid var(--border);
     border-radius: 14px;
     padding: 8px;
+    z-index: 2000;             /* keep it above everything */
+}
+
+/* Hover “bridge” so it doesn’t disappear while moving your mouse down */
+.dropdown-panel::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -10px;                /* matches margin-top above */
+    height: 10px;
 }
 .nav-dropdown:hover .dropdown-panel,
 .nav-dropdown:focus-within .dropdown-panel{
@@ -133,6 +145,13 @@ img{ display: block; max-width: 100%; height: auto; }
 .nav-dropdown.open .dropdown-panel{
     display: block;
 }
+
+/* If a dropdown is near the right edge, anchor the panel to the right */
+.nav-dropdown--right .dropdown-panel{
+    left: auto;
+    right: 0;
+}
+
 
 /* Mobile menu */
 .nav-toggle{
@@ -172,7 +191,7 @@ img{ display: block; max-width: 100%; height: auto; }
 
 .hero-title{
     margin: 0 0 16px;
-    font-size: clamp(48px, 5.2vw, 86px);
+    font-size: clamp(58px, 5.2vw, 86px);
     line-height: 0.98;
     letter-spacing: -0.01em;
     font-weight: 500;
@@ -209,13 +228,16 @@ img{ display: block; max-width: 100%; height: auto; }
     min-height: 560px;
     display: flex;
     overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(18px, 3vw, 48px);
 }
 
 .hero-illustration{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top; /* keeps fish higher like Wix crop */
+    width: 92%;
+    height: 92%;
+    object-fit: contain;
+    object-position: center; /* keeps fish higher like Wix crop */
 }
 
 /* Optional decorative assets later */
@@ -247,7 +269,23 @@ img{ display: block; max-width: 100%; height: auto; }
         padding: 10px;
     }
     .site-nav.open{ display: flex; }
-    .dropdown-panel{ position: static; display: block; border: none; padding: 0; }
+    .dropdown-panel{
+        position: static;
+        display: none;           /* hidden until .open on the parent */
+        margin-top: 0;
+        min-width: 0;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        z-index: auto;
+    }
+    .dropdown-panel::before{
+        content: none;
+    }
+    .nav-dropdown.open .dropdown-panel{
+        display: block;  /* <-- show when toggled open */
+    }
 }
 
 /* ---------- Shared spacing + typography helpers ---------- */
@@ -317,7 +355,8 @@ strong{ font-weight: 800; }
 }
 
 .mission-text{
-    max-width: 760px;
+    width: min(1000px, 1000%);  /* <-- change 600px to whatever you want */
+    justify-self: start;      /* prevents stretching across the grid column */
     color: var(--muted);
 }
 
@@ -430,13 +469,13 @@ strong{ font-weight: 800; }
 
 /* ---------- How It Works ---------- */
 .how-left{
-    text-align: center;
+    text-align: right;
 }
 
 .how-paragraph{
-    max-width: 420px;
+    max-width: 540px;
     margin: 0 auto;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 .card-stack{
@@ -666,12 +705,32 @@ strong{ font-weight: 800; }
 }
 
 .social-icon{
-    width: 34px;
-    height: 34px;
+    width: 42px;
+    height: 42px;
     border-radius: 10px;
-    background: rgba(8,52,78,0.08);
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(8,52,78,0.06);
+    border: 1px solid rgba(8,52,78,0.14);
+    transition: transform 120ms ease, background 120ms ease;
+    padding: 0;
+    overflow: hidden;
 }
+
+.social-icon:hover{
+    transform: translateY(-1px);
+    background: rgba(8,52,78,0.10);
+}
+
+.social-icon img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: scale(2);
+    display: block;
+}
+
 
 .fineprint{
     color: rgba(8,52,78,0.75);
@@ -716,13 +775,17 @@ strong{ font-weight: 800; }
     gap: 0;
 }
 .hero-left{
-    padding-left: var(--gutter, clamp(28px, 6vw, 120px));
     padding-right: clamp(28px, 4vw, 90px);
-    padding-top: clamp(70px, 8vh, 120px);
     max-width: 720px; /* keeps text block feeling like Wix */
+    padding-top: clamp(200px, 10vh, 160px);  /* down */
+    padding-left: clamp(140px, 7vw, 2000px);  /* right */
 }
 .hero-right{
     min-height: clamp(560px, 72vh, 860px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(18px, 3vw, 48px);
 }
 
 /* Global split sizing closer to Wix */
@@ -746,6 +809,9 @@ strong{ font-weight: 800; }
 .mission-body{
     gap: clamp(40px, 7vw, 140px);
 }
+.mission-text p{
+    font-size: 20px;   /* try 15px–18px */
+}
 .mission-art-circle{
     width: 230px;
     height: 230px;
@@ -759,10 +825,14 @@ strong{ font-weight: 800; }
     margin-top: clamp(60px, 8vh, 160px);
     max-width: 560px;
 }
-
+/* What Drives Us body text size */
+.drives-left .drives-copy p {
+    font-size: 24px; /* try 15px–18px */
+    line-height: 1.7; /* optional */
+}
 /* Photo frames feel a bit taller than 16:9 on Wix */
 .photo-inner{ aspect-ratio: 4 / 3; }
-.photo-frame{ width: min(560px, 100%); }
+.photo-frame{ width: min(420px, 100%); }
 
 /* --- How It Works spacing --- */
 .how .split-left,
@@ -771,7 +841,7 @@ strong{ font-weight: 800; }
 }
 
 .how-left{
-    text-align: left; /* Wix title is left aligned */
+    text-align: center; /* Wix title is left aligned */
 }
 .how-left .title-xl{
     margin-bottom: 0; /* reduces extra gap under title */
@@ -789,7 +859,12 @@ strong{ font-weight: 800; }
     align-items: stretch;
 }
 
-/* Make photo-right halves truly edge-to-edge (Guest/Social already use split-right--photo) */
+.feature-text{
+    font-size: 24px;
+    line-height: 1.7;
+}
+
+    /* Make photo-right halves truly edge-to-edge (Guest/Social already use split-right--photo) */
 .split-right--photo{
     padding: 0;
     align-items: stretch;
@@ -821,13 +896,13 @@ strong{ font-weight: 800; }
 
 /* --- Join Us band spacing --- */
 .cta{
-    padding-top: clamp(110px, 9vw, 170px);
-    padding-bottom: clamp(110px, 9vw, 170px);
+    padding-top: clamp(40px, 9vw, 70px);
+    padding-bottom: clamp(40px, 9vw, 70px);
 }
 
 /* --- Contact spacing (cards centered vertically in dark area) --- */
 .contact-section{
-    padding: clamp(110px, 9vw, 175px) 0;
+    padding: clamp(50px, 9vw, 90px) 0;
 }
 .contact-grid{
     align-items: center;
@@ -835,4 +910,50 @@ strong{ font-weight: 800; }
 }
 .contact-card{
     border-radius: 18px;
+}
+
+/* --- Contact strip (replaces the form) --- */
+.contact-strip{
+    width: min(var(--max), 100% - 2*var(--pad));
+    margin: 0 auto;
+    background: var(--bg);
+    border-radius: 18px;
+    padding: clamp(26px, 3.2vw, 44px) clamp(22px, 3vw, 46px);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 22px;
+}
+
+.contact-strip-left{
+    display: grid;
+    gap: 10px;
+}
+
+.contact-link{
+    text-decoration: none;
+}
+.contact-link:hover{
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.contact-strip-right{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+    padding-left: 22px;
+    border-left: 1px solid rgba(8,52,78,0.18);
+}
+
+@media (max-width: 700px){
+    .contact-strip{
+        grid-template-columns: 1fr;
+    }
+    .contact-strip-right{
+        justify-content: flex-start;
+        padding-left: 0;
+        border-left: 0;
+    }
 }
