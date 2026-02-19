@@ -272,17 +272,17 @@ strong{ font-weight: 800; }
 
 .hero-right{
     background: var(--panel);
-    min-height: clamp(560px, 72vh, 860px);
+    min-height: clamp(860px, 72vh, 860px);
     display: flex;
     overflow: hidden;
     align-items: center;
     justify-content: center;
-    padding: clamp(18px, 3vw, 48px);
+    padding: 0;
 }
 
 .hero-illustration{
-    width: 92%;
-    height: 92%;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
     object-position: center;
 }
