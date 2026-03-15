@@ -2626,7 +2626,8 @@ strong{ font-weight: 800; }
 .aboutpage-founders__image{
     display: block;
     width: 100%;
-    aspect-ratio: 4 / 3;
+    height: 100%;
+    aspect-ratio: 8 / 7;
     object-fit: cover;
     border-radius: 28px;
     border: 1px solid var(--border);
@@ -2664,6 +2665,7 @@ strong{ font-weight: 800; }
 
 .aboutpage-founders__meta-text{
     margin: 0;
+    font-size: 16px;
     color: var(--text);
     line-height: 1.7;
 }
