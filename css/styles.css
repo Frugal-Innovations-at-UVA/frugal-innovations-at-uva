@@ -2231,6 +2231,479 @@ strong{ font-weight: 800; }
 }
 
 /* =========================================================
+   About Page
+   ========================================================= */
+
+.aboutpage{
+    padding-top: var(--header-h);
+    background: var(--bg);
+    color: var(--text);
+}
+
+.aboutpage-container{
+    width: min(var(--max), calc(100% - 2 * var(--pad)));
+    margin: 0 auto;
+}
+
+.aboutpage-section{
+    padding: clamp(72px, 8vw, 120px) 0;
+}
+
+.aboutpage-section--light{
+    background: var(--bg);
+}
+
+.aboutpage-section--tint{
+    background: rgba(8, 52, 78, 0.04);
+}
+
+.aboutpage-section--dark{
+    background: var(--panel);
+    color: #fff;
+}
+
+.aboutpage-section--accent{
+    background: var(--accent);
+    color: #fff;
+}
+
+.aboutpage-section__heading{
+    margin-bottom: 38px;
+}
+
+.aboutpage-section__heading--center{
+    max-width: 780px;
+    margin: 0 auto 38px;
+    text-align: center;
+}
+
+.aboutpage-section__label{
+    margin: 0 0 12px;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.aboutpage-section__label--light{
+    color: rgba(255,255,255,0.78);
+}
+
+.aboutpage-section__title{
+    margin: 0;
+    font-size: clamp(34px, 4vw, 54px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.aboutpage-section__title--light{
+    color: #fff;
+}
+
+.aboutpage-section__intro{
+    margin: 14px auto 0;
+    max-width: 720px;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+/* Hero */
+
+.aboutpage-hero{
+    background: var(--panel);
+    color: #fff;
+    text-align: center;
+    padding: clamp(88px, 11vw, 148px) 0;
+}
+
+.aboutpage-hero__eyebrow{
+    margin: 0 0 14px;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.76);
+}
+
+.aboutpage-hero__title{
+    max-width: 1000px;
+    margin: 0 auto;
+    font-size: clamp(42px, 6vw, 84px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+}
+
+.aboutpage-hero__text{
+    max-width: 760px;
+    margin: 18px auto 0;
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.7;
+    color: rgba(255,255,255,0.88);
+}
+
+.aboutpage-hero__actions{
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.aboutpage-hero__button{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    font-weight: 750;
+    transition: transform 120ms ease, background 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.aboutpage-hero__button:hover{
+    transform: translateY(-1px);
+}
+
+.aboutpage-hero__button--accent{
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+
+.aboutpage-hero__button--outline{
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255,255,255,0.82);
+}
+
+/* Who We Are */
+
+.aboutpage-who{
+    display: grid;
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: clamp(28px, 4vw, 56px);
+    align-items: start;
+}
+
+.aboutpage-who__text p{
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.aboutpage-who__text p + p{
+    margin-top: 18px;
+}
+
+.aboutpage-who__stats{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.aboutpage-mini-card{
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 22px;
+    box-shadow: 0 12px 28px rgba(8, 52, 78, 0.06);
+}
+
+.aboutpage-mini-card__title{
+    margin: 0 0 10px;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.aboutpage-mini-card__text{
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+/* Cards */
+
+.aboutpage-cards{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.aboutpage-card{
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 12px 30px rgba(8, 52, 78, 0.06);
+    display: flex;
+    flex-direction: column;
+}
+
+.aboutpage-card__title{
+    margin: 0 0 12px;
+    font-size: 24px;
+    line-height: 1.15;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.aboutpage-card__text{
+    color: var(--muted);
+    line-height: 1.75;
+}
+
+.aboutpage-card__link{
+    margin-top: 20px;
+    font-weight: 800;
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Approach */
+
+.aboutpage-approach{
+    display: grid;
+    grid-template-columns: 1.02fr 0.98fr;
+    gap: clamp(28px, 4vw, 64px);
+    align-items: start;
+}
+
+.aboutpage-approach__text{
+    color: rgba(255,255,255,0.86);
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.aboutpage-approach__text + .aboutpage-approach__text{
+    margin-top: 18px;
+}
+
+.aboutpage-approach__points{
+    display: grid;
+    gap: 20px;
+}
+
+.aboutpage-principle{
+    border-bottom: 1px solid rgba(255,255,255,0.16);
+    padding-bottom: 18px;
+}
+
+.aboutpage-principle:last-child{
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.aboutpage-principle__title{
+    margin: 0 0 8px;
+    font-size: 24px;
+    font-weight: 800;
+    color: #fff;
+}
+
+.aboutpage-principle__text{
+    margin: 0;
+    color: rgba(255,255,255,0.84);
+    line-height: 1.75;
+}
+
+/* Team CTA */
+
+.aboutpage-team{
+    background: rgba(8, 52, 78, 0.04);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: clamp(28px, 4vw, 44px);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: center;
+}
+
+.aboutpage-team__text{
+    margin: 14px 0 0;
+    max-width: 700px;
+    color: var(--muted);
+    line-height: 1.75;
+    font-size: 18px;
+}
+
+.aboutpage-team__button{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    background: var(--panel);
+    color: #fff;
+    border: 1px solid var(--panel);
+    font-weight: 750;
+    transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+.aboutpage-team__button:hover{
+    transform: translateY(-1px);
+}
+
+/* Timeline */
+
+.aboutpage-timeline{
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    gap: 26px;
+}
+
+.aboutpage-timeline__item{
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 18px;
+    align-items: start;
+}
+
+.aboutpage-timeline__marker{
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 8px;
+    box-shadow: 0 0 0 6px rgba(230, 89, 37, 0.14);
+}
+
+.aboutpage-timeline__content{
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 24px;
+    box-shadow: 0 12px 28px rgba(8, 52, 78, 0.05);
+}
+
+.aboutpage-timeline__eyebrow{
+    margin: 0 0 8px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.aboutpage-timeline__title{
+    margin: 0 0 10px;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.aboutpage-timeline__text{
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.75;
+}
+
+/* Get involved */
+
+.aboutpage-involved{
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.aboutpage-involved__text{
+    margin: 16px auto 0;
+    max-width: 720px;
+    color: rgba(255,255,255,0.90);
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+.aboutpage-involved__actions{
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+}
+
+.aboutpage-involved__button{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    font-weight: 750;
+    transition: transform 120ms ease, background 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.aboutpage-involved__button:hover{
+    transform: translateY(-1px);
+}
+
+.aboutpage-involved__button--light{
+    background: #fff;
+    color: var(--panel);
+    border-color: #fff;
+}
+
+.aboutpage-involved__button--outline{
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255,255,255,0.82);
+}
+
+/* Responsive */
+
+@media (max-width: 1100px){
+    .aboutpage-cards{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 960px){
+    .aboutpage-who,
+    .aboutpage-approach,
+    .aboutpage-team{
+        grid-template-columns: 1fr;
+    }
+
+    .aboutpage-team__action{
+        justify-self: start;
+    }
+}
+
+@media (max-width: 760px){
+    .aboutpage-who__stats,
+    .aboutpage-cards{
+        grid-template-columns: 1fr;
+    }
+
+    .aboutpage-hero__actions,
+    .aboutpage-involved__actions{
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .aboutpage-timeline__item{
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .aboutpage-timeline__marker{
+        margin-top: 0;
+    }
+}
+
+
+/* =========================================================
    About Officers / Team (Wix About Us replication)
    ========================================================= */
 
