@@ -2610,6 +2610,74 @@ strong{ font-weight: 800; }
     line-height: 1.75;
 }
 
+/* Founders */
+
+.aboutpage-founders{
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: clamp(28px, 4vw, 56px);
+    align-items: center;
+}
+
+.aboutpage-founders__imagewrap{
+    position: relative;
+}
+
+.aboutpage-founders__image{
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 28px;
+    border: 1px solid var(--border);
+    box-shadow: 0 16px 36px rgba(8, 52, 78, 0.08);
+    background: rgba(8, 52, 78, 0.06);
+}
+
+.aboutpage-founders__content{
+    max-width: 680px;
+}
+
+.aboutpage-founders__text{
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.8;
+    margin: 16px 0 0;
+}
+
+.aboutpage-founders__meta{
+    margin-top: 24px;
+    padding: 18px 20px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: rgba(8, 52, 78, 0.04);
+}
+
+.aboutpage-founders__meta-label{
+    margin: 0 0 6px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.aboutpage-founders__meta-text{
+    margin: 0;
+    color: var(--text);
+    line-height: 1.7;
+}
+
+@media (max-width: 960px){
+    .aboutpage-founders{
+        grid-template-columns: 1fr;
+    }
+
+    .aboutpage-founders__content{
+        max-width: none;
+    }
+}
+
 /* Get involved */
 
 .aboutpage-involved{
